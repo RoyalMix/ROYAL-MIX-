@@ -1,0 +1,16 @@
+# Replace OWNER/REPO with your GitHub repo path, e.g. youruser/RoyalMix
+REPO="OWNER/REPO"
+
+gh api -X POST repos/$REPO/labels -f name='type:task' -f color='0E8A16'
+gh api -X POST repos/$REPO/labels -f name='type:bug' -f color='D73A4A'
+gh api -X POST repos/$REPO/labels -f name='type:enhancement' -f color='A2EEEF'
+gh api -X POST repos/$REPO/labels -f name='area:backend' -f color='5319E7'
+gh api -X POST repos/$REPO/labels -f name='area:frontend' -f color='0366D6'
+gh api -X POST repos/$REPO/labels -f name='area:docs' -f color='FBCA04'
+gh api -X POST repos/$REPO/labels -f name='area:security' -f color='B60205'
+gh api -X POST repos/$REPO/labels -f name='priority:high' -f color='B60205'
+gh api -X POST repos/$REPO/labels -f name='priority:medium' -f color='FBCA04'
+gh api -X POST repos/$REPO/labels -f name='priority:low' -f color='0E8A16'
+gh api -X POST repos/$REPO/labels -f name='status:blocked' -f color='6A737D'
+gh api -X POST repos/$REPO/labels -f name='status:qa' -f color='D4C5F9'
+gh api -X POST repos/$REPO/labels -f name='automate:move-to-inprogress' -f color='E99695'
