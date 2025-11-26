@@ -1,0 +1,11 @@
+royalmix-backend/
+├─ .gitignore
+├─ package.json
+├─ index.js
+├─ src/
+│  └─ controllers/
+│      └─ orders.js
+├─ .env.example
+└─ .github/
+   └─ workflows/
+      └─ ci.yml

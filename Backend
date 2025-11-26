@@ -1,0 +1,5 @@
+cd royalmix-backend
+npm ci
+cp .env.example .env
+# edit .env: add SUPABASE_URL and SUPABASE_SERVICE_KEY
+npm run dev

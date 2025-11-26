@@ -1,0 +1,3 @@
+cd royalmix-admin
+npm ci
+npm run dev

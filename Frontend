@@ -1,0 +1,24 @@
+royalmix-frontend/
+├─ .gitignore
+├─ package.json
+├─ app.json
+├─ App.js
+├─ src/
+│  ├─ screens/
+│  │  ├─ HomeScreen.js
+│  │  ├─ MenuScreen.js
+│  │  └─ OrderScreen.js
+│  ├─ components/
+│  │  └─ ServiceButton.js
+│  └─ i18n/
+│     └─ en.json
+└─ .github/
+   └─ workflows/
+      └─ ci.yml
+node_modules/
+.expo/
+.env
+dist/
+build/
+.DS_Store
+.vscode/

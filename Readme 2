@@ -1,0 +1,13 @@
+Royal Mix is a unified digital ecosystem combining Food Delivery, Health Services, Supplier Networks, Publicity Systems, and Smart City operations inside one secure, scalable application.
+
+Modules include: Royal Food, Royal Health, Royal Delivery, Supplier Network, Publicity System (30-day rule), Rewards, Maps, Business Accounts, AI Engine, and Admin System.
+
+Built for Zambia first (Lusaka launch), with national compliance (trading licenses, supplier verification, delivery transport rules, public health guidelines).
+
+Technology: React Native / Flutter, Supabase PostgreSQL, RLS Security, OpenAI AI Engine, Fast API layer.
+
+Suppliers: Coca-Cola, Pepsi, Milk/Fruit Networks, Local Markets, Royal Internal Production — all verified and announced through a mandatory 30-day publicity system.
+
+Testnet Phase: Architecture, API routes, supplier logic, rewards system, security templates, Zambia compliance preparation.
+
+Royal Mix is engineered to scale city-by-city, then nationwide, then globally.

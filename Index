@@ -1,0 +1,32 @@
+require('dotenv').config();
+const Fastify = require('fastify');
+const cors = require('@fastify/cors');
+const { createClient } = require('@supabase/supabase-js');
+
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseKey = process.env.SUPABASE_SERVICE_KEY;
+const supabase = createClient(supabaseUrl, supabaseKey);
+
+const app = Fastify({logger:true});
+app.register(cors, { origin: true });
+
+// health
+app.get('/health', async (req, reply) => reply.send({ok:true}));
+
+// example: get products
+app.get('/v1/products', async (req, reply) => {
+  const { data, error } = await supabase.from('products').select('*').limit(100);
+  if (error) return reply.code(500).send({error});
+  return reply.send({data});
+});
+
+const start = async () => {
+  try {
+    await app.listen({ port: process.env.PORT || 3000, host: '0.0.0.0' });
+    app.log.info('Server listening');
+  } catch (err) {
+    app.log.error(err);
+    process.exit(1);
+  }
+};
+start();

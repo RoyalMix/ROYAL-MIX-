@@ -1,0 +1,41 @@
+royalmix-backend/
+├─ .gitignore
+├─ package.json
+├─ index.js
+├─ src/
+│  └─ controllers/
+│      └─ orders.js
+├─ .env.example
+└─ .github/
+   └─ workflows/
+      └─ ci.yml
+royalmix/
+ ├── apps/
+ │    ├── food/                  # Food Delivery app module
+ │    ├── health/                # Health Services app module
+ │    ├── delivery/              # Delivery + Tracking module
+ │    └── supplier/              # Supplier management module
+ ├── backend/
+ │    ├── api/
+ │    │    ├── routes/           # REST endpoints skeleton
+ │    │    ├── controllers/      # Business logic placeholders
+ │    │    └── middleware/       # Authentication, logging, error handling
+ │    ├── config/                # Testnet + Mainnet configs (config.json)
+ │    └── tests/                 # Unit + integration test examples
+ ├── docs/
+ │    ├── architecture/          # System diagrams, flowcharts
+ │    ├── suppliers/             # Supplier categories + agreements
+ │    ├── health/                # Health system documentation
+ │    ├── food/                  # Food delivery system docs
+ │    └── policies/              # 21 Royal Mix Business Policies
+ ├── ui/
+ │    ├── components/            # React / Flutter components
+ │    └── assets/                # Logos, icons, images
+ ├── configs/
+ │    └── testnet_config.json    # Environment configuration
+ ├── scripts/                    # Setup scripts / seed data
+ ├── README_DEV.md               # Developers Testnet guide
+ ├── README_CORP.md              # Professional / Corporate guide
+ ├── README_INV.md               # Investor / Strategic guide
+ ├── LICENSE
+ └── .gitignore
