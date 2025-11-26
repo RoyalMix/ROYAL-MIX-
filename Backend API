@@ -1,0 +1,55 @@
+Backend/
+│── api/
+│   ├── food/
+│   │   ├── orders.js
+│   │   ├── menu.js
+│   │   ├── restaurants.js
+│   │   └── payments.js
+│   ├── health/
+│   │   ├── doctors.js
+│   │   ├── appointments.js
+│   │   ├── pharmacy.js
+│   │   └── insurance.js
+│   ├── supplier/
+│   │   ├── register.js
+│   │   ├── products.js
+│   │   └── invoices.js
+│   ├── delivery/
+│   │   ├── riders.js
+│   │   ├── tracking.js
+│   │   ├── dispatch.js
+│   │   └── routes.js
+│   ├── publicity/
+│   │   ├── announcements.js
+│   │   ├── ads.js
+│   │   └── media.js
+│   ├── ai/
+│   │   ├── ai_core.js
+│   │   ├── ai_voice.js
+│   │   ├── ai_recommend.js
+│   │   └── ai_security.js
+│   ├── rewards/
+│   │   ├── points.js
+│   │   └── transactions.js
+│   ├── common/
+│   │   ├── auth.js
+│   │   ├── validator.js
+│   │   ├── db.js
+│   │   └── utils.js
+│   └── index.js
+│
+├── config/
+│   ├── testnet.js
+│   ├── production.js
+│   └── security.js
+│
+├── middleware/
+│   ├── rate_limit.js
+│   ├── token_verify.js
+│   └── error_handler.js
+│
+├── services/
+│   ├── notification_service.js
+│   └── payment_service.js
+│
+└── app.js
