@@ -1,0 +1,16 @@
+{
+  "env": "testnet",
+  "modules": {
+    "food": true,
+    "health": true,
+    "delivery": true,
+    "supplier": true,
+    "publicity": true,
+    "rewards": true
+  },
+  "security": {
+    "cors": "*",
+    "rate_limit": 50
+  },
+  "language_support": ["en", "nyanja", "bemba", "swahili", "fr"]
+}
