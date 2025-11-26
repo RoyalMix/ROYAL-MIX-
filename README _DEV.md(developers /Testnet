@@ -1,0 +1,27 @@
+# Royal Mix — Developer Testnet Guide
+
+## Overview
+This Testnet repository contains:
+- Code skeletons for apps (Food, Health, Delivery, Supplier)
+- API routes and controllers
+- UI component placeholders
+- Testnet configuration
+- Mock data for testing
+- Supplier system setup
+- Rewards logic testing
+- Multi-language support setup
+
+## Folder Structure
+- /apps/: Frontend modules
+- /backend/api/: REST API skeleton
+- /backend/config/: config.json for testnet
+- /docs/: Architecture & Policies
+- /ui/: Components + assets
+- /scripts/: Mock data & setup scripts
+
+## Testnet Notes
+- Supabase not yet connected
+- RLS policies not required yet
+- API endpoints are skeletons
+- Mock data used for testing
+- Ready to switch to Mainnet in future
