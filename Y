@@ -1,0 +1,10 @@
+const rateLimit = require('express-rate-limit');
+const { RATE_LIMIT } = require('../config/security');
+
+module.exports = rateLimit({
+  windowMs: RATE_LIMIT.WINDOW_MS,
+  max: RATE_LIMIT.MAX_REQUESTS,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: 'Too many requests, slow down.' }
+});
