@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Usage: ./rotate_keys.sh NEW_KEY
+NEW_KEY="$1"
+if [ -z "$NEW_KEY" ]; then
+  echo "Usage: $0 NEW_KEY"
+  exit 1
+fi
+
+# call backend endpoint to rotate key (backend will use service_role to write DB)
+curl -X POST "https://backend.example.com/api/admin/rotate-key" \
+  -H "Authorization: Bearer $ADMIN_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d "{\"key\":\"$NEW_KEY\"}"
