@@ -1,0 +1,14 @@
+const helmet = require('helmet');
+const cors = require('cors');
+const { CORS } = require('../config/security');
+
+module.exports = (app) => {
+  app.use(helmet({
+    contentSecurityPolicy: false // enable later with proper configuration
+  }));
+  app.use(cors({
+    origin: CORS.ORIGIN,
+    methods: CORS.METHODS,
+    credentials: true
+  }));
+};
