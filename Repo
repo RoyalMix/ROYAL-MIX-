@@ -1,0 +1,17 @@
+Backend/
+├── middleware/
+│   ├── rate_limit.js
+│   ├── helmet_cors.js
+│   ├── token_verify.js
+│   ├── jwt_auth.js
+│   ├── hmac_verify.js
+│   ├── request_sign.js
+│   └── error_handler.js
+├── services/
+│   ├── key_manager.js
+│   └── audit_log.js
+├── scripts/
+│   └── rotate_keys.sh
+├── config/
+│   └── security.js
+└── README_SECURITY.md
