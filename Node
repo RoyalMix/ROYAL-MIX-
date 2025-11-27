@@ -1,0 +1,9 @@
+const crypto = require('crypto');
+
+function signRequest(secret, method, path, body='') {
+  const ts = Math.floor(Date.now()/1000).toString();
+  const nonce = crypto.randomBytes(12).toString('hex');
+  const payload = [method.toUpperCase(), path, ts, nonce, body].join('|');
+  const signature = crypto.createHmac('sha256', secret).update(payload).digest('hex');
+  return { signature, ts, nonce };
+}
