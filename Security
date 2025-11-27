@@ -1,0 +1,27 @@
+module.exports = {
+  RATE_LIMIT: {
+    WINDOW_MS: 60 * 1000, // 1 minute
+    MAX_REQUESTS: 200
+  },
+  CORS: {
+    ORIGIN: ["https://your-frontend.example.com"], // update for Testnet
+    METHODS: ["GET","POST","PUT","PATCH","DELETE","OPTIONS"]
+  },
+  JWT: {
+    ALGORITHM: "HS256",
+    EXPIRY: "1h",            // short-lived tokens
+    REFRESH_EXPIRY: "30d"
+  },
+  HMAC: {
+    HEADER: "x-rm-signature",
+    TIMESTAMP_HEADER: "x-rm-ts",
+    NONCE_HEADER: "x-rm-nonce",
+    WINDOW_SECS: 300 // 5 minutes
+  },
+  ADMIN: {
+    IP_WHITELIST: ["YOUR.IP.ADD.RESS"] // admin IPs
+  },
+  AUDIT: {
+    LOG_TABLE: "audit_logs"
+  }
+};
