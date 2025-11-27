@@ -1,0 +1,6 @@
+const { ADMIN } = require('../config/security');
+module.exports = (req, res, next) => {
+  const ip = req.ip || req.connection.remoteAddress;
+  if (!ADMIN.IP_WHITELIST.includes(ip)) return res.status(403).json({error:'Forbidden'});
+  next();
+};
