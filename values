@@ -1,0 +1,7 @@
+curl -X POST https://api.example.com/api/food/menu \
+ -H "Content-Type: application/json" \
+ -H "Authorization: Bearer <JWT_TOKEN>" \
+ -H "x-rm-ts: 1690000000" \
+ -H "x-rm-nonce: abc123nonce" \
+ -H "x-rm-signature: <computed_sig>" \
+ -d '{"example":"payload"}'
