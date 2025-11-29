@@ -1,0 +1,4 @@
+List → stores
+Image → item.banner
+Title → item.name
+Subtitle → item.delivery_time
