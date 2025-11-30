@@ -1,0 +1,154 @@
+// HomeScreen.js (React Native, functional component)
+import React, { useState } from 'react';
+import { View, Text, Image, StyleSheet, TouchableOpacity, FlatList, TextInput, StatusBar } from 'react-native';
+
+// Brand colors
+const COLORS = {
+  royalBlack: '#0A0A0A',
+  gold: '#FFD300',
+  deepGold: '#E6B800',
+  red: '#A00000',
+  white: '#FFFFFF',
+  grayBg: '#1A1A1A',
+  neutral: '#E5E5E5'
+};
+
+// Mock data (replace with real API hooks)
+const STORES = [
+  { id: 'royal_chicken', name: 'Royal Chicken', category: 'Food', rating: 4.9, delivery_time: '15-25 min', banner: 'https://yourcdn/royal_chicken.jpg' },
+  { id: 'royal_chips', name: 'Royal Chips', category: 'Food', rating: 4.7, delivery_time: '20-30 min', banner: 'https://yourcdn/royal_chips.jpg' },
+  { id: 'mamaskitchen', name: "Mama's Kitchen", category: 'Food', rating: 4.8, delivery_time: '30-40 min', banner: 'https://yourcdn/mama.jpg' },
+  { id: 'city_pharm', name: 'City Pharmacy', category: 'Health', rating: 4.6, delivery_time: '20-30 min', banner: 'https://yourcdn/pharmacy.jpg' }
+];
+
+export default function HomeScreen({ navigation }) {
+  const [query, setQuery] = useState('');
+  const [orders, setOrders] = useState([{ order_id: 'RM-TN-0001', eta: '25 min' }]);
+
+  const openStore = (storeId) => {
+    // navigation to store screen with storeId
+    navigation.navigate('Store', { storeId });
+  };
+
+  const quickOrder = (storeId) => {
+    // Create a mock order and navigate to Orders/Tracker
+    const newOrder = { order_id: `RM-TN-${Math.floor(Math.random()*9000)+1000}`, eta: '25 min' };
+    setOrders([newOrder, ...orders]);
+    navigation.navigate('OrderTracker', { order: newOrder });
+  };
+
+  const renderStore = ({ item }) => (
+    <View style={styles.card}>
+      <Image source={{ uri: item.banner }} style={styles.banner} />
+      <Text style={styles.storeTitle}>{item.name}</Text>
+      <Text style={styles.storeCategory}>{item.category}</Text>
+      <Text style={styles.storeMeta}>★ {item.rating} • {item.delivery_time}</Text>
+      <View style={styles.cardBtns}>
+        <TouchableOpacity style={styles.viewBtn} onPress={() => openStore(item.id)}>
+          <Text style={styles.viewBtnText}>VIEW STORE</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.orderBtn} onPress={() => quickOrder(item.id)}>
+          <Text style={styles.orderBtnText}>ORDER NOW</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+
+  return (
+    <View style={styles.container}>
+      <StatusBar barStyle="light-content" backgroundColor={COLORS.royalBlack} />
+      {/* Topbar */}
+      <View style={styles.topbar}>
+        <Image source={{ uri: 'https://yourcdn/logo_white_gold.png' }} style={styles.logo} />
+        <Text style={styles.brand}>ROYAL MIX</Text>
+        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+          <TouchableOpacity style={styles.iconBtn}><Text style={{color:COLORS.gold}}>🔔</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.iconBtn}><Text style={{color:COLORS.white}}>👤</Text></TouchableOpacity>
+        </View>
+      </View>
+
+      {/* Hero */}
+      <View style={styles.hero}>
+        <Text style={styles.heroTitle}>WELCOME TO ROYAL MIX GLOBAL 👑</Text>
+        <Text style={styles.heroSub}>Fast. Fresh. Smart Delivery</Text>
+        <View style={styles.heroBtns}>
+          <TouchableOpacity style={styles.primaryBtn} onPress={() => navigation.navigate('Marketplace')}>
+            <Text style={styles.primaryBtnText}>ORDER NOW</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.secondaryBtn} onPress={() => navigation.navigate('Marketplace')}>
+            <Text style={styles.secondaryBtnText}>EXPLORE MARKETPLACE</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+
+      {/* Search */}
+      <View style={styles.searchWrap}>
+        <TextInput value={query} onChangeText={setQuery} placeholder="Search food, drinks, liquor, services..." placeholderTextColor={COLORS.gold} style={styles.searchInput} />
+      </View>
+
+      {/* Next Delivery */}
+      <View style={styles.nextDelivery}>
+        <View>
+          <Text style={{color:COLORS.gold,fontWeight:'700'}}>Next delivery</Text>
+          <Text style={{color:COLORS.white,fontWeight:'800'}}>{orders[0].order_id}</Text>
+          <Text style={{color:COLORS.neutral}}>{orders[0].eta}</Text>
+        </View>
+        <TouchableOpacity style={styles.trackBtn} onPress={() => navigation.navigate('OrderTracker',{order:orders[0]})}>
+          <Text style={{fontWeight:'800'}}>TRACK</Text>
+        </TouchableOpacity>
+      </View>
+
+      {/* Featured Stores */}
+      <View style={{paddingHorizontal:14, paddingTop:10, paddingBottom:110}}>
+        <Text style={{color:COLORS.gold,fontWeight:'800',fontSize:18,marginBottom:8}}>Featured Stores</Text>
+        <FlatList
+          data={STORES}
+          keyExtractor={(i) => i.id}
+          renderItem={renderStore}
+          ItemSeparatorComponent={() => <View style={{height:12}}/>}
+        />
+      </View>
+
+      {/* Bottom Nav */}
+      <View style={styles.bottomNav}>
+        <TouchableOpacity style={styles.navBtn}><Text style={{color:COLORS.gold}}>🏠</Text></TouchableOpacity>
+        <TouchableOpacity style={styles.navBtn}><Text style={{color:COLORS.gold}}>🛒</Text></TouchableOpacity>
+        <TouchableOpacity style={styles.navBtn}><Text style={{color:COLORS.gold}}>💼</Text></TouchableOpacity>
+        <TouchableOpacity style={styles.navBtn}><Text style={{color:COLORS.gold}}>📍</Text></TouchableOpacity>
+        <TouchableOpacity style={styles.navBtn}><Text style={{color:COLORS.gold}}>🤖</Text></TouchableOpacity>
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: { flex:1, backgroundColor:COLORS.royalBlack },
+  topbar: { height:62, padding:10, flexDirection:'row', alignItems:'center', justifyContent:'space-between', backgroundColor:COLORS.royalBlack },
+  logo: { width:44, height:44, borderRadius:8 },
+  brand: { color:COLORS.gold, fontWeight:'800', fontSize:18 },
+  iconBtn: { marginLeft:10 },
+  hero: { padding:16, alignItems:'center' },
+  heroTitle: { color:COLORS.gold, fontSize:20, fontWeight:'900' },
+  heroSub: { color:COLORS.deepGold, marginTop:6 },
+  heroBtns: { flexDirection:'row', marginTop:12, gap:8 },
+  primaryBtn: { backgroundColor:COLORS.red, paddingVertical:12, paddingHorizontal:18, borderRadius:12, marginRight:8 },
+  primaryBtnText: { color:COLORS.white, fontWeight:'800' },
+  secondaryBtn: { borderColor:COLORS.gold, borderWidth:2, paddingVertical:10, paddingHorizontal:16, borderRadius:12 },
+  secondaryBtnText: { color:COLORS.gold, fontWeight:'700' },
+  searchWrap: { paddingHorizontal:14, paddingTop:6 },
+  searchInput: { backgroundColor:COLORS.grayBg, color:COLORS.gold, padding:10, borderRadius:12 },
+  nextDelivery: { marginTop:12, paddingHorizontal:14, paddingVertical:12, backgroundColor:COLORS.grayBg, borderRadius:12, marginHorizontal:14, flexDirection:'row', justifyContent:'space-between', alignItems:'center' },
+  trackBtn: { backgroundColor:COLORS.deepGold, padding:10, borderRadius:10 },
+  card: { backgroundColor:COLORS.grayBg, borderRadius:12, padding:12 },
+  banner: { width:'100%', height:140, borderRadius:10 },
+  storeTitle: { color:COLORS.gold, fontWeight:'800', marginTop:10, fontSize:16 },
+  storeCategory: { color:COLORS.white, marginTop:2 },
+  storeMeta: { color:COLORS.deepGold, marginTop:4, fontWeight:'700' },
+  cardBtns: { flexDirection:'row', marginTop:10, gap:8 },
+  viewBtn: { flex:1, backgroundColor:COLORS.white, borderRadius:10, paddingVertical:10, alignItems:'center' },
+  viewBtnText: { color:COLORS.royalBlack, fontWeight:'800' },
+  orderBtn: { flex:1, backgroundColor:COLORS.gold, borderRadius:10, paddingVertical:10, alignItems:'center' },
+  orderBtnText: { color:COLORS.royalBlack, fontWeight:'800' },
+  bottomNav: { position:'absolute', left:0, right:0, bottom:0, height:64, backgroundColor:COLORS.royalBlack, borderTopWidth:1, borderTopColor:'#202020', flexDirection:'row', justifyContent:'space-around', alignItems:'center' },
+  navBtn: { alignItems:'center', justifyContent:'center' }
+});
