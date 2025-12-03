@@ -1,0 +1,10 @@
+<div style="padding:12px;background:#000;display:flex;align-items:center;gap:12px;">
+  <img src="YOUR_CLOUDINARY_URL/royal_mix_global_1024.png"
+       style="width:56px;height:56px;object-fit:contain"/>
+  <div style="color:#F2B632;font-weight:900;font-size:18px">
+      ROYAL MIX GLOBAL
+  </div>
+  <div style="margin-left:auto;color:#fff">
+      🇿🇲 ZM • 🇬🇧 EN • 💼 Wallet
+  </div>
+</div>
