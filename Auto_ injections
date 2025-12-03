@@ -1,0 +1,13 @@
+<script>
+window.RM_ASSETS = {
+ logo: "YOUR_CLOUDINARY_URL/royal_mix_global_1024.png",
+ logo_svg: "YOUR_CLOUDINARY_URL/royal_mix_global.svg",
+ preview: "YOUR_CLOUDINARY_URL/royal_mix_global_1080.jpg"
+};
+document.addEventListener('DOMContentLoaded',function(){
+ document.querySelectorAll('[data-rm-logo]').forEach(i=>i.src = window.RM_ASSETS.logo);
+ document.querySelectorAll('[data-rm-svg]').forEach(i=>{
+     i.innerHTML = '<img src="'+window.RM_ASSETS.logo_svg+'" style="width:100%">';
+ });
+});
+</script>
