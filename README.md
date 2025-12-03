@@ -1,4 +1,4 @@
-# Royal Mix
+# Royal Mix Global 
 
 Royal Mix is a unified platform combining:
 - Royal Mix Food
